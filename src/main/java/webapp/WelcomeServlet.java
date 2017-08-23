@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
 
 /*
 *Browser sends Http Request to Web Server and Web Server responds with Http Response
@@ -26,15 +27,8 @@ import javax.servlet.http.HttpServletResponse;
 public class WelcomeServlet extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		PrintWriter out = response.getWriter();
-		out.println("<html>");
-		out.println("<head>");
-		out.println("<title>Sopra Steria</title>");
-		out.println("</head>");
-		out.println("<body>");
-		out.println("Introduction to Java EE");
-		out.println("</body>");
-		out.println("</html>");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
+	{
+		request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request, response);
 	}
 }
