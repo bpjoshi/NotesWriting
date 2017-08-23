@@ -9,20 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /*
- * Browser sends Http Request to Web Server
- * 
- * Code in Web Server => Input:HttpRequest, Output: HttpResponse
- * JEE with Servlets
- * 
- * Web Server responds with Http Response
+ * Browser sends Http Request to Web Server and Web Server responds with Http Response
  */
 
-//Java Platform, Enterprise Edition (Java EE) JEE6
 
-//Servlet is a Java programming language class 
-//used to extend the capabilities of servers 
-//that host applications accessed by means of 
-//a request-response programming model.
+/*
+Servlet is a Java class used to extend the capabilities of servers 
+that host applications accessed by means of a request-response programming model.
+*/
 
 //1. extends javax.servlet.http.HttpServlet
 //2. @WebServlet(urlPatterns = "/login.do")
@@ -43,7 +37,6 @@ public class LoginServlet extends HttpServlet {
 		out.println("My First Servlet");
 		out.println("</body>");
 		out.println("</html>");
-
 	}
 
 }
