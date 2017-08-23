@@ -7,6 +7,14 @@
 <title>Sopra Steria</title>
 </head>
 <body>
-	<h2>Welcome to Java EE Tutorial. This is my first JSP</h2>
+	<h3>Hello ${name}!</h3> 
+	<p> Welcome to Java EE Tutorial. This is the first JSP!</p>
+	<p>Date: <%=new java.util.Date() %></p>
+	<div>
+	<form action="welcome.do">
+		Name: <input type="text" name="name">
+		<input type="submit" value="Submit">
+	</form>
+	</div>
 </body>
 </html>

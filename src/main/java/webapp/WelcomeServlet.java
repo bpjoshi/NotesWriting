@@ -25,10 +25,14 @@ import javax.servlet.ServletException;
  */
 @WebServlet(urlPatterns = "/welcome.do")
 public class WelcomeServlet extends HttpServlet {
-
+	/*
+	 * Disadvantage of GET request is you can see the parameters being passed in
+	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
 	{
+		String name=request.getParameter("name");
+		request.setAttribute("name", name);
 		request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request, response);
 	}
 }
