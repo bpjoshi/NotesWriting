@@ -1,4 +1,4 @@
-package webapp;
+package com.bpjoshi.stickynotes.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
+
+import com.bpjoshi.stickynotes.service.WelcomeService;
 
 /*
 *Browser sends Http Request to Web Server and Web Server responds with Http Response
@@ -31,8 +33,23 @@ public class WelcomeServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
 	{
-		String name=request.getParameter("name");
-		request.setAttribute("name", name);
-		request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		String name=req.getParameter("name");
+		String pass=req.getParameter("password");
+		boolean valid=WelcomeService.validateUser(name, pass);
+		if(valid){
+			req.setAttribute("name", name);
+			req.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(req, resp);
+		}
+		else{
+			req.setAttribute("errMsg", "Sorry! Invalid Credentials");
+			req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
+		}
+		
 	}
 }

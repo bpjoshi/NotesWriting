@@ -4,17 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Sopra Steria</title>
+<title>Sticky Notes</title>
 </head>
 <body>
-	<h3>Hello ${name}!</h3> 
-	<p> Welcome to Java EE Tutorial. This is the first JSP!</p>
-	<p>Date: <%=new java.util.Date() %></p>
-	<div>
-	<form action="welcome.do">
-		Name: <input type="text" name="name">
-		<input type="submit" value="Submit">
-	</form>
-	</div>
+	<center>Welcome Mr./Ms. ${name} to Sticky Notes!</center>
 </body>
 </html>
